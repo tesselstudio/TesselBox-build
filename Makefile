@@ -31,11 +31,11 @@ mobile-run: mobile-desktop
 
 mobile-apk:
 	@echo "Building Android APK..."
-	cd $(MOBILE_DIR) && gomobile build -target=android -androidapi=21 -o TesselBox.apk ./cmd
+	cd $(MOBILE_DIR) && go run golang.org/x/mobile/cmd/gomobile@latest build -target android -androidapi 21 -o TesselBox.apk ./cmd
 
 ios:
 	@echo "Building iOS app..."
-	cd $(MOBILE_DIR) && gomobile build -target=ios -o TesselBox.app ./cmd
+	cd $(MOBILE_DIR) && gomobile bind -target=ios -o TesselBox.app ./cmd
 
 mobile-test:
 	cd $(MOBILE_DIR) && go test ./...
